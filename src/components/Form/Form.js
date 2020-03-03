@@ -6,6 +6,7 @@ import Heading from '@enact/moonstone/Heading';
 import Input from '@enact/moonstone/Input';
 import Spinner from '@enact/moonstone/Spinner';
 import { Row, Cell } from '@enact/ui/Layout';
+import SubmitButton from '../SubmitButton/SubmitButton'
 
 import axios from 'axios';
 import css from './Form.module.less';
@@ -106,7 +107,6 @@ class Form extends Component {
 							<Heading>Username</Heading>
 							<Input value={this.state.data.username} onChange={(ev)=>this.handleChange('username', ev)} placeholder="Enter Username" />
 						</div>
-
 						<div className="inputContainer">
 							<Heading>Password</Heading>
 							<Input type='password' value={this.state.data.password} onChange={(ev)=>this.handleChange('password', ev)} placeholder="Enter Password" />
@@ -117,10 +117,7 @@ class Form extends Component {
 				<Row>
 					<Cell/>
 					<Cell shrink>
-						<div className="buttonContainer">
-							<Button size='large' type="submit" onClick={this.handleFormSubmit}>Submit Form</Button>
-							{this.state.isSubmitting && <Spinner className="ajaxSpinner"/>}
-						</div>
+						<SubmitButton isSubmitting={this.state.isSubmitting} handleFormSubmit={this.handleFormSubmit} />
 					</Cell>
 					<Cell/>
 				</Row>

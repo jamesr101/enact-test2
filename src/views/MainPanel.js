@@ -1,7 +1,7 @@
 import kind from '@enact/core/kind';
 import {Panel, Header} from '@enact/moonstone/Panels';
 import React from 'react';
-import Form from '../components/Form'
+import Form from '../components/Form/Form'
 
 const MainPanel = kind({
 	name: 'Form',

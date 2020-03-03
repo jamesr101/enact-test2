@@ -8,6 +8,7 @@ import Spinner from '@enact/moonstone/Spinner';
 import { Row, Cell } from '@enact/ui/Layout';
 
 import axios from 'axios';
+import css from './Form.module.less';
 
 
 class Form extends Component {
@@ -66,7 +67,7 @@ class Form extends Component {
 
 	render () {
 		return (
-			<form onSubmit={this.handleFormSubmit}>
+			<form className="form" onSubmit={this.handleFormSubmit}>
 				<Row>
 					<BodyText>
 						Please complete the following form...
@@ -75,38 +76,51 @@ class Form extends Component {
 				<Row>
 					<Cell>
 
-						<Heading>Video Player</Heading>
-						<Dropdown
-							title="Select"
-							onSelect={(ev)=>this.handleSelect('player', ev)}
-							>
-							{['AVPlay', 'DashJS', 'ExoPlayer', 'hls.js']}
-						</Dropdown>
-						<Heading>UI</Heading>
-						<Dropdown
-							title="Select"
-							onSelect={(ev)=>this.handleSelect('ui', ev)}
-							>
-							{['DPlay', 'Eurosport', 'Motortrend']}
-						</Dropdown>
+						<div className="inputContainer">
+							<Heading>Video Player</Heading>
+							<Dropdown
+								title="Select"
+								onSelect={(ev)=>this.handleSelect('player', ev)}
+								>
+								{['AVPlay', 'DashJS', 'ExoPlayer', 'hls.js']}
+							</Dropdown>
+						</div>
+
+						<div className="inputContainer">
+							<Heading>UI</Heading>
+							<Dropdown
+								title="Select"
+								onSelect={(ev)=>this.handleSelect('ui', ev)}
+								>
+								{['DPlay', 'Eurosport', 'Motortrend']}
+							</Dropdown>
+						</div>
 
 					</Cell>
 					<Cell>
-						<Heading>Video ID</Heading>
-						<Input value={this.state.data.videoId} onChange={(ev)=>this.handleChange('videoId', ev)} placeholder="Enter Video ID" />
-						<Heading>Username</Heading>
-						<Input value={this.state.data.username} onChange={(ev)=>this.handleChange('username', ev)} placeholder="Enter Username" />
-						<Heading>Password</Heading>
-						<Input type='password' value={this.state.data.password} onChange={(ev)=>this.handleChange('password', ev)} placeholder="Enter Password" />
+						<div className="inputContainer">
+							<Heading>Video ID</Heading>
+							<Input value={this.state.data.videoId} onChange={(ev)=>this.handleChange('videoId', ev)} placeholder="Enter Video ID" />
+						</div>
+						<div className="inputContainer">
+							<Heading>Username</Heading>
+							<Input value={this.state.data.username} onChange={(ev)=>this.handleChange('username', ev)} placeholder="Enter Username" />
+						</div>
 
+						<div className="inputContainer">
+							<Heading>Password</Heading>
+							<Input type='password' value={this.state.data.password} onChange={(ev)=>this.handleChange('password', ev)} placeholder="Enter Password" />
+						</div>
 					</Cell>
 				</Row>
 
 				<Row>
 					<Cell/>
 					<Cell shrink>
-						<Button size='large' type="submit" onClick={this.handleFormSubmit}>Submit Form</Button>
-						{this.state.isSubmitting && <Spinner />}
+						<div className="buttonContainer">
+							<Button size='large' type="submit" onClick={this.handleFormSubmit}>Submit Form</Button>
+							{this.state.isSubmitting && <Spinner className="ajaxSpinner"/>}
+						</div>
 					</Cell>
 					<Cell/>
 				</Row>

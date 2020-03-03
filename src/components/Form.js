@@ -82,7 +82,7 @@ class Form extends Component {
 								title="Select"
 								onSelect={(ev)=>this.handleSelect('player', ev)}
 								>
-								{['AVPlay', 'DashJS', 'ExoPlayer', 'hls.js']}
+								{['AVPlay', 'DashJS', 'ExoPlayer', 'hls.js', 'HTML5', 'Shaka', 'WebMaf']}
 							</Dropdown>
 						</div>
 

@@ -7,8 +7,8 @@ const MainPanel = kind({
 	name: 'Form',
 
 	render: (props) => (
-		<Panel {...props}>
-			<Header title="My Form" />
+		<Panel {...props} >
+			<Header type="compact" title="My Form"/>
 			<Form/>
 		</Panel>
 	)

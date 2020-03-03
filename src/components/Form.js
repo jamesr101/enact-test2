@@ -97,7 +97,7 @@ class Form extends Component {
 						<Heading>Username</Heading>
 						<Input value={this.state.data.username} onChange={(ev)=>this.handleChange('username', ev)} placeholder="Enter Username" />
 						<Heading>Password</Heading>
-						<Input value={this.state.data.password} onChange={(ev)=>this.handleChange('password', ev)} placeholder="Enter Password" />
+						<Input type='password' value={this.state.data.password} onChange={(ev)=>this.handleChange('password', ev)} placeholder="Enter Password" />
 
 					</Cell>
 				</Row>

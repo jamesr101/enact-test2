@@ -28,7 +28,7 @@ class Form extends Component {
 				videoId: '',
 			},
 			isSubmitting: false,
-			isError: false
+			isErrorResponse: false
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -75,6 +75,12 @@ class Form extends Component {
 			validationErrors: validationErrors
 		})
 
+		return validationErrors
+	}
+
+	isDataValide = () => {
+		const validationErrors = this.validateData()
+
 		const allValid = Object.keys(validationErrors).every(function(i) {
 			return !validationErrors[i].length
 		});
@@ -101,10 +107,10 @@ class Form extends Component {
 		console.log(this.state.data)
 		const data = this.state.data;
 
-		if(this.validateData()) {
+		if(this.isDataValide()) {
 			this.setState({
 				isSubmitting: true,
-				isError: false
+				isErrorResponse: false
 			});
 
 			axios.post(`https://jsonplaceholder.typicode.com/users`, { data })
@@ -117,7 +123,7 @@ class Form extends Component {
 			.catch((err) => {
 				this.setState({
 					isSubmitting: false,
-					isError: true
+					isErrorResponse: true
 				})
 
 				console.log(err)
@@ -127,12 +133,12 @@ class Form extends Component {
 
 
 	render () {
-		const {data, isSubmitting, isError, validationErrors} = this.state;
+		const {data, isSubmitting, isErrorResponse, validationErrors} = this.state;
 
 		return (
 			<form className={styles.form} onSubmit={this.handleFormSubmit}>
 				<Row>
-					{isError && <BodyText className={styles.error}>There was an Error, please try again</BodyText>}
+					{isErrorResponse && <BodyText className={styles.error}>There was an Error, please try again</BodyText>}
 				</Row>
 				<Row>
 					<BodyText>

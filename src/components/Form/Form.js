@@ -6,7 +6,7 @@ import TextInput from '../TextInput/TextInput';
 import SelectInput from '../SelectInput/SelectInput';
 
 import axios from 'axios';
-import css from './Form.module.less';
+import styles from './Form.module.less';
 
 
 class Form extends Component {
@@ -56,7 +56,7 @@ class Form extends Component {
 
 	render () {
 		return (
-			<form className="form" onSubmit={this.handleFormSubmit}>
+			<form className={styles.form} onSubmit={this.handleFormSubmit}>
 				<Row>
 					<BodyText>
 						Please complete the following form...

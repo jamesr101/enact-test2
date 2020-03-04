@@ -21,10 +21,10 @@ const TextInput = kind({
 	},
 
 	render: function ({heading, value, onChange, name, placeholder, ...props}) {
-		const type = (name == 'password') ? 'password' : '';
+		const type = (name === 'password') ? 'password' : '';
 
 		return (
-			<div className={props.textInput}>
+			<div className={props.className}>
 				<Heading>{heading}</Heading>
 				<Input type={type} value={value} onChange={onChange} placeholder={placeholder} />
 			</div>

@@ -50,11 +50,12 @@ class Form extends Component {
 			console.log(res);
 			console.log(res.data);
 		})
-
 	}
 
 
 	render () {
+		const {data, isSubmitting} = this.state;
+
 		return (
 			<form className={styles.form} onSubmit={this.handleFormSubmit}>
 				<Row>
@@ -74,18 +75,18 @@ class Form extends Component {
 						</SelectInput>
 					</Cell>
 					<Cell>
-						<TextInput name='videoId' heading='Video ID' value={this.state.data.videoId} onChange={this.handleChange} placeholder="Enter Video ID"/>
+						<TextInput name='videoId' heading='Video ID' value={data.videoId} onChange={this.handleChange} placeholder="Enter Video ID"/>
 
-						<TextInput name='username' heading='Username' value={this.state.data.username} onChange={this.handleChange} placeholder="Enter Username"/>
+						<TextInput name='username' heading='Username' value={data.username} onChange={this.handleChange} placeholder="Enter Username"/>
 
-						<TextInput name='password' heading='Password' value={this.state.data.password} onChange={this.handleChange} placeholder="Enter Password"/>
+						<TextInput name='password' heading='Password' value={data.password} onChange={this.handleChange} placeholder="Enter Password"/>
 					</Cell>
 				</Row>
 
 				<Row>
 					<Cell/>
 					<Cell shrink>
-						<SubmitButton isSubmitting={this.state.isSubmitting} handleFormSubmit={this.handleFormSubmit} />
+						<SubmitButton isSubmitting={isSubmitting} handleFormSubmit={this.handleFormSubmit} />
 					</Cell>
 					<Cell/>
 				</Row>

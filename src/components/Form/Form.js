@@ -41,7 +41,10 @@ class Form extends Component {
 		console.log(this.state.data)
 		const data = this.state.data;
 
-		this.setState({isSubmitting: true});
+		this.setState({
+			isSubmitting: true,
+			isError: false
+		});
 
 		axios.post(`https://jsonplaceholder.typicode.com/users`, { data })
 		.then(res => {
@@ -50,14 +53,25 @@ class Form extends Component {
 			console.log(res);
 			console.log(res.data);
 		})
+		.catch((err) => {
+			this.setState({
+				isSubmitting: false,
+				isError: true
+			})
+
+			console.log(err)
+		});
 	}
 
 
 	render () {
-		const {data, isSubmitting} = this.state;
+		const {data, isSubmitting, isError} = this.state;
 
 		return (
 			<form className={styles.form} onSubmit={this.handleFormSubmit}>
+				<Row>
+					{isError && <BodyText className={styles.error}>There was an Error, please try again</BodyText>}
+				</Row>
 				<Row>
 					<BodyText>
 						Please complete the following form...

@@ -3,6 +3,7 @@ import kind from '@enact/core/kind';
 import css from './SelectInput.module.less';
 import Heading from '@enact/moonstone/Heading';
 import Dropdown from '@enact/moonstone/Dropdown';
+import BodyText from '@enact/ui/BodyText/BodyText';
 
 const SelectInput = kind({
 	name: 'SelectInput',
@@ -20,7 +21,7 @@ const SelectInput = kind({
 		}
 	},
 
-	render: function ({heading, onSelect, children, ...props}) {
+	render: function ({heading, onSelect, children, errors, ...props}) {
 		return (
 			<div className={props.className}>
 				<Heading>{heading}</Heading>
@@ -30,6 +31,7 @@ const SelectInput = kind({
 					>
 					{children}
 				</Dropdown>
+				<BodyText className={css.error}>{errors}</BodyText>
 			</div>
 		);
 	}

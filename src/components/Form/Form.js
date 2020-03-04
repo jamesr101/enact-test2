@@ -27,20 +27,11 @@ class Form extends Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	handleChange = (name, ev) => {
+	handleChange = (name, value) => {
 		this.setState(prevState => ({
 			data: {
 				...prevState.data,
-				[name]: ev.value
-			}
-		}))
-	}
-
-	handleSelect = (name, ev) => {
-		this.setState(prevState => ({
-			data: {
-				...prevState.data,
-				[name]: ev.data
+				[name]: value
 			}
 		}))
 	}
@@ -71,13 +62,14 @@ class Form extends Component {
 						Please complete the following form...
 					</BodyText>
 				</Row>
+
 				<Row>
 					<Cell>
-						<SelectInput name='player' heading='Video Player' onSelect={this.handleSelect}>
+						<SelectInput name='player' heading='Video Player' onSelect={this.handleChange}>
 							{['AVPlay', 'DashJS', 'ExoPlayer', 'hls.js', 'HTML5', 'Shaka', 'WebMaf']}
 						</SelectInput>
 
-						<SelectInput name='ui' heading='UI' onSelect={this.handleSelect}>
+						<SelectInput name='ui' heading='UI' onSelect={this.handleChange}>
 							{['DPlay', 'Eurosport', 'Motortrend']}
 						</SelectInput>
 					</Cell>
@@ -97,7 +89,6 @@ class Form extends Component {
 					</Cell>
 					<Cell/>
 				</Row>
-
 			</form>
 		);
 	}

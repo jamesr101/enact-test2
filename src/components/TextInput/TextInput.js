@@ -15,7 +15,7 @@ const TextInput = kind({
 	handlers: {
 		onChange: (ev, {name, onChange}) => {
 			if (onChange) {
-				onChange(name, ev);
+				onChange(name, ev.value);
 			}
 		}
 	},

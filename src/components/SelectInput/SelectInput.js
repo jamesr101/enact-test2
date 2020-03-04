@@ -15,7 +15,7 @@ const SelectInput = kind({
 	handlers: {
 		onSelect: (ev, {name, onSelect}) => {
 			if (onSelect) {
-				onSelect(name, ev);
+				onSelect(name, ev.data);
 			}
 		}
 	},

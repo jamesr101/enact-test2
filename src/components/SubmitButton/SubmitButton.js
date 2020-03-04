@@ -15,7 +15,7 @@ const SubmitButton = kind({
 	render: function ({isSubmitting, handleFormSubmit, ...props}) {
 		return (
 			<div className={props.className}>
-				<Button size='large' type="submit" onClick={handleFormSubmit}>Submit Form</Button>
+				<Button disabled={isSubmitting} size='large' type="submit" onClick={handleFormSubmit}>Submit Form</Button>
 				{isSubmitting && <Spinner className={css.ajaxSpinner}/>}
 			</div>
 		);

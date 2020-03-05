@@ -43,31 +43,31 @@ class Form extends Component {
 			const value = data[name];
 			switch (name) {
 				case 'player':
-					validationErrors.player =
+					validationErrors[name] =
 						value
 							? ''
 							: 'Please select a Player';
 					break;
 				case 'ui':
-					validationErrors.ui =
+					validationErrors[name] =
 						value
 							? ''
 							: 'Please select a UI';
 					break;
 				case 'videoId':
-					validationErrors.videoId =
+					validationErrors[name] =
 						value
 							? ''
 							: 'Please enter a Video ID';
 					break;
 				case 'username':
-					validationErrors.username =
+					validationErrors[name] =
 						value
 							? ''
 							: 'Please enter a Username';
 					break;
 				case 'realm':
-					validationErrors.realm =
+					validationErrors[name] =
 						value
 							? ''
 							: 'Please select a Realm';

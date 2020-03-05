@@ -3,9 +3,15 @@ import Button from '@enact/moonstone/Button';
 import Spinner from '@enact/moonstone/Spinner';
 import kind from '@enact/core/kind';
 import css from './SubmitButton.module.less';
+import PropTypes from 'prop-types';
 
 const SubmitButton = kind({
 	name: 'SubmitButton',
+
+	propTypes: {
+		isSubmitting: PropTypes.bool,
+		handleFormSubmit: PropTypes.func
+	},
 
 	styles: {
 		css,

@@ -21,9 +21,13 @@ const TextInput = kind({
 		}
 	},
 
-	render: function ({heading, value, onChange, name, placeholder, errors, ...props}) {
-		const type = (name === 'password') ? 'password' : '';
+	computed: {
+		type: ({name}) => {
+			return (name === 'password') ? 'password' : '';;
+		}
+	},
 
+	render: function ({heading, value, onChange, name, placeholder, errors, type, ...props}) {
 		return (
 			<div className={props.className}>
 				<Heading>{heading}</Heading>

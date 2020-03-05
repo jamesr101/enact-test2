@@ -40,13 +40,13 @@ const MultiSelectInput = kind({
 		return (
 			<div className={props.className}>
 				<Heading>{heading} (Multi)</Heading>
+				<BodyText className={css.selected}>Selected: {value.join(', ')}</BodyText>
 				<Dropdown
 					title="Select"
 					onSelect={onSelect}
 					>
 					{children}
 				</Dropdown>
-				<BodyText className={css.selected}>Selected: {value.join(', ')}</BodyText>
 				<BodyText className={css.error}>{errors}</BodyText>
 			</div>
 		);

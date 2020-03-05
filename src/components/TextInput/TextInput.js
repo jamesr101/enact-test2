@@ -4,9 +4,19 @@ import css from './TextInput.module.less';
 import Heading from '@enact/moonstone/Heading';
 import Input from '@enact/moonstone/Input';
 import BodyText from '@enact/ui/BodyText/BodyText';
+import PropTypes from 'prop-types';
 
 const TextInput = kind({
 	name: 'TextInput',
+
+	propTypes: {
+		heading: PropTypes.string,
+		value: PropTypes.string,
+		onChange: PropTypes.func,
+		name: PropTypes.string,
+		placeholder: PropTypes.string,
+		errors: PropTypes.string
+	},
 
 	styles: {
 		css,
@@ -27,7 +37,7 @@ const TextInput = kind({
 		}
 	},
 
-	render: function ({heading, value, onChange, name, placeholder, errors, type, ...props}) {
+	render: function ({heading, value, onChange, placeholder, errors, type, ...props}) {
 		return (
 			<div className={props.className}>
 				<Heading>{heading}</Heading>

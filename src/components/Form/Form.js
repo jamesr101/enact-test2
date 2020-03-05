@@ -19,6 +19,7 @@ class Form extends Component {
 				username: '',
 				password: '',
 				videoId: '',
+				realm: '',
 			},
 			validationErrors: {
 				player: '',
@@ -26,6 +27,7 @@ class Form extends Component {
 				username: '',
 				password: '',
 				videoId: '',
+				realm: '',
 			},
 			isSubmitting: false,
 			isErrorResponse: false
@@ -63,6 +65,12 @@ class Form extends Component {
 						value
 							? ''
 							: 'Please enter a Username';
+					break;
+				case 'realm':
+					validationErrors.realm =
+						value
+							? ''
+							: 'Please select a Realm';
 					break;
 
 				default:
@@ -155,6 +163,15 @@ class Form extends Component {
 						<SelectInput name='ui' heading='UI' onSelect={this.handleChange} errors={validationErrors.ui}>
 							{['DPlay', 'Eurosport', 'Motortrend']}
 						</SelectInput>
+
+						<TextInput
+						name='realm'
+						heading='Realm'
+						value={data.realm}
+						onChange={this.handleChange}
+						placeholder="Enter a Realm"
+						errors={validationErrors.realm}
+						/>
 					</Cell>
 					<Cell>
 						<TextInput

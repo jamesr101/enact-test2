@@ -4,6 +4,7 @@ import { Row, Cell } from '@enact/ui/Layout';
 import SubmitButton from '../SubmitButton/SubmitButton'
 import TextInput from '../TextInput/TextInput';
 import SelectInput from '../SelectInput/SelectInput';
+import MultiSelectInput from '../MultiSelectInput/MultiSelectInput';
 
 import axios from 'axios';
 import styles from './Form.module.less';
@@ -14,12 +15,12 @@ class Form extends Component {
 		super(props);
 		this.state = {
 			data: {
-				player: '',
+				player: [],
 				ui: '',
 				username: '',
 				password: '',
 				videoId: '',
-				realm: '',
+				realm: ''
 			},
 			validationErrors: {
 				player: '',
@@ -44,9 +45,9 @@ class Form extends Component {
 			switch (name) {
 				case 'player':
 					validationErrors[name] =
-						value
+					value.length > 0
 							? ''
-							: 'Please select a Player';
+							: 'Please select at least one Player';
 					break;
 				case 'ui':
 					validationErrors[name] =
@@ -156,9 +157,9 @@ class Form extends Component {
 
 				<Row>
 					<Cell>
-						<SelectInput name='player' heading='Video Player' onSelect={this.handleChange} errors={validationErrors.player}>
+						<MultiSelectInput value={data.player} name='player' heading='Video Player' onSelect={this.handleChange} errors={validationErrors.player}>
 							{['AVPlay', 'DashJS', 'ExoPlayer', 'hls.js', 'HTML5', 'Shaka', 'WebMaf']}
-						</SelectInput>
+						</MultiSelectInput>
 
 						<SelectInput name='ui' heading='UI' onSelect={this.handleChange} errors={validationErrors.ui}>
 							{['DPlay', 'Eurosport', 'Motortrend']}

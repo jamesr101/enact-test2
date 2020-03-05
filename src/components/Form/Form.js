@@ -114,8 +114,8 @@ class Form extends Component {
 
 	handleFormSubmit = (ev) => {
 		ev.preventDefault();
-		console.log(this.state.data)
 		const data = this.state.data;
+		console.log(data)
 
 		if(this.isDataValide()) {
 			this.setState({
@@ -142,7 +142,6 @@ class Form extends Component {
 	}
 
 	handleSpotlightEndOfColumn = (ev) => {
-		console.log('handleSpotlightEndOfColumn')
 		ev.preventDefault();
 		ev.stopPropagation();
 		Spotlight.focus('[spottable-id="columnStart"]');

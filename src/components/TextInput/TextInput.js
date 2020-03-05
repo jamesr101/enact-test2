@@ -13,8 +13,10 @@ const TextInput = kind({
 		heading: PropTypes.string,
 		value: PropTypes.string,
 		onChange: PropTypes.func,
+		onSpotlightRight: PropTypes.func,
 		name: PropTypes.string,
 		placeholder: PropTypes.string,
+		spottableId: PropTypes.string,
 		errors: PropTypes.string
 	},
 
@@ -37,15 +39,17 @@ const TextInput = kind({
 		}
 	},
 
-	render: function ({heading, value, onChange, placeholder, errors, type, ...props}) {
+	render: function ({heading, value, onChange, onSpotlightRight, placeholder, errors, type, spottableId, ...props}) {
 		return (
 			<div className={props.className}>
 				<Heading>{heading}</Heading>
 				<Input
+				onSpotlightRight={onSpotlightRight}
 				type={type}
 				value={value}
 				onChange={onChange}
 				placeholder={placeholder}
+				spottable-id={spottableId}
 				/>
 				<BodyText className={css.error}>{errors}</BodyText>
 			</div>

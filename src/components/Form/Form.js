@@ -5,6 +5,7 @@ import SubmitButton from '../SubmitButton/SubmitButton'
 import TextInput from '../TextInput/TextInput';
 import SelectInput from '../SelectInput/SelectInput';
 import MultiSelectInput from '../MultiSelectInput/MultiSelectInput';
+import Spotlight from '@enact/spotlight';
 
 import axios from 'axios';
 import styles from './Form.module.less';
@@ -140,6 +141,13 @@ class Form extends Component {
 		}
 	}
 
+	handleSpotlightEndOfColumn = (ev) => {
+		console.log('handleSpotlightEndOfColumn')
+		ev.preventDefault();
+		ev.stopPropagation();
+		Spotlight.focus('[spottable-id="columnStart"]');
+	}
+
 
 	render () {
 		const {data, isSubmitting, isErrorResponse, validationErrors} = this.state;
@@ -172,6 +180,8 @@ class Form extends Component {
 						onChange={this.handleChange}
 						placeholder="Enter a Realm"
 						errors={validationErrors.realm}
+
+						onSpotlightRight={this.handleSpotlightEndOfColumn}
 						/>
 					</Cell>
 					<Cell>
@@ -182,6 +192,8 @@ class Form extends Component {
 						onChange={this.handleChange}
 						placeholder="Enter Video ID"
 						errors={validationErrors.videoId}
+
+						spottableId='columnStart'
 						/>
 
 						<TextInput

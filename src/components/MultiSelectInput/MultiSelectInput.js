@@ -22,6 +22,12 @@ const MultiSelectInput = kind({
 		className: 'multiSelectInput'
 	},
 
+	computed: {
+		selectedMessage: ({value}) => {
+			return value.length ? 'Selected:' : 'You can select multiple';
+		}
+	},
+
 	handlers: {
 		onSelect: (ev, {name, onSelect, value}) => {
 			if (onSelect) {
@@ -36,11 +42,11 @@ const MultiSelectInput = kind({
 		}
 	},
 
-	render: function ({heading, value, onSelect, children, errors, ...props}) {
+	render: function ({heading, value, onSelect, children, errors, selectedMessage, ...props}) {
 		return (
 			<div className={props.className}>
-				<Heading>{heading} (Multi)</Heading>
-				<BodyText className={css.selected}>Selected: {value.join(', ')}</BodyText>
+				<Heading>{heading}</Heading>
+				<BodyText className={css.selected}>{selectedMessage} {value.join(', ')}</BodyText>
 				<Dropdown
 					title="Select"
 					onSelect={onSelect}

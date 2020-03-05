@@ -4,9 +4,17 @@ import css from './SelectInput.module.less';
 import Heading from '@enact/moonstone/Heading';
 import Dropdown from '@enact/moonstone/Dropdown';
 import BodyText from '@enact/ui/BodyText/BodyText';
+import PropTypes from 'prop-types';
 
 const SelectInput = kind({
 	name: 'SelectInput',
+
+	propTypes: {
+		heading: PropTypes.string,
+		onSelect: PropTypes.func,
+		children: PropTypes.node,
+		errors: PropTypes.string
+	},
 
 	styles: {
 		css,

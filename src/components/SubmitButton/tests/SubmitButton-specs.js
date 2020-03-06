@@ -72,6 +72,3 @@ it('should have the correct class', () => {
 
 	expect(actual).toBe(expected);
 });
-
-// TO DO:
-// handles onClick

@@ -31,6 +31,7 @@ class Form extends Component {
 				password: '',
 				videoId: '',
 				realm: '',
+				realmText: ''
 			},
 			isSubmitting: false,
 			isErrorResponse: false
@@ -74,12 +75,13 @@ class Form extends Component {
 						value
 							? ''
 							: 'Please select a Realm';
+					validationErrors['realmText'] = '';
 					break;
 				case 'realmText':
 					validationErrors[name] =
-						value
-							? ''
-							: 'Please enter a Realm or select an option above';
+						data['realm'] === 'Other' && !value
+							? 'Please enter a Realm or select an option above'
+							: '';
 					break;
 
 				default:

@@ -41,7 +41,7 @@ const TextInput = kind({
 
 	render: function ({heading, value, onChange, onSpotlightRight, placeholder, errors, type, spottableId, ...props}) {
 		return (
-			<div className={props.className}>
+			<div className={props.className} {...props}>
 				<Heading>{heading}</Heading>
 				<Input
 				onSpotlightRight={onSpotlightRight}

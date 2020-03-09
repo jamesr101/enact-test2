@@ -206,6 +206,7 @@ class Form extends Component {
 						{
 							showRealmTextInput &&
 								<TextInput
+								className='realmText'
 								name='realmText'
 								value={data.realmText}
 								onChange={this.handleChange}

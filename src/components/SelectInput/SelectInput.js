@@ -29,13 +29,14 @@ const SelectInput = kind({
 		}
 	},
 
-	render: function ({heading, onSelect, children, errors, ...props}) {
+	render: function ({heading, onSelect, children, errors, onSpotlightRight, ...props}) {
 		return (
 			<div className={props.className}>
 				<Heading>{heading}</Heading>
 				<Dropdown
 					title="Select"
 					onSelect={onSelect}
+					onSpotlightRight={onSpotlightRight}
 					>
 					{children}
 				</Dropdown>

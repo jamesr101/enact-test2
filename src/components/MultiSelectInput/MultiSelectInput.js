@@ -17,6 +17,10 @@ const MultiSelectInput = kind({
 		errors: PropTypes.string
 	},
 
+	defaultProps: {
+		value: []
+	},
+
 	styles: {
 		css,
 		className: 'multiSelectInput'

@@ -34,3 +34,29 @@ it('should have the correct classname', () => {
 
 	expect(actual).toBe(expected);
 });
+
+it('should have the correct method onSelect', () => {
+	const mockCallback = jest.fn()
+	const event = {
+		data: 'eventData'
+	}
+  const wrapper = shallow(
+    <SelectInput onSelect={mockCallback}/>
+	);
+
+	wrapper.instance().handlers.onSelect(event)
+	expect(mockCallback.mock.calls.length).toBe(1)
+});
+
+it('should call the onSelect method with the correct parameters', () => {
+	const mockCallback = jest.fn()
+	const event = {
+		data: 'eventData'
+	}
+  const wrapper = shallow(
+    <SelectInput onSelect={mockCallback} name={'mockName'}/>
+	);
+
+	wrapper.instance().handlers.onSelect(event)
+	expect(mockCallback).toHaveBeenCalledWith('mockName', 'eventData')
+});

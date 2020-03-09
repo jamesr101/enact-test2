@@ -169,7 +169,7 @@ class Form extends Component {
 	render () {
 		const {data, isSubmitting, isErrorResponse, validationErrors} = this.state;
 
-
+		const showRealmTextInput = (data.realm === 'Other');
 
 		return (
 			<form className={styles.form} onSubmit={this.handleFormSubmit}>
@@ -197,7 +197,6 @@ class Form extends Component {
 						heading='Realm'
 						value={data.realm}
 						onSelect={this.handleChange}
-						placeholder="Enter a Realm"
 						errors={validationErrors.realm}
 						onSpotlightRight={this.handleSpotlightEndOfColumn}
 						>
@@ -205,16 +204,15 @@ class Form extends Component {
 						</SelectInput>
 
 						{
-							(data.realm === 'Other') && <TextInput
-							name='realmText'
-							// heading='Realm'
-							value={data.realmText}
-							onChange={this.handleChange}
-							placeholder="Enter a Realm"
-							errors={validationErrors.realmText}
-
-							onSpotlightRight={this.handleSpotlightEndOfColumn}
-							/>
+							showRealmTextInput &&
+								<TextInput
+								name='realmText'
+								value={data.realmText}
+								onChange={this.handleChange}
+								placeholder="Enter a Realm"
+								errors={validationErrors.realmText}
+								onSpotlightRight={this.handleSpotlightEndOfColumn}
+								/>
 						}
 
 					</Cell>
